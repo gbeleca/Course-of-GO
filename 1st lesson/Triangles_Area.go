@@ -1,28 +1,22 @@
 package main
 
-import ( "fmt"
-		"math"
-		"github.com/gbeleca/course-of-GO"
+import (
+	"fmt"
+	"math"
 )
 
-func getCathets()  {
-	fmt.PrintIn("Вычисление площади, периметра и гипотенузы по катетам прямоугольного треугольника.")
-	fmt.ScanIn(&AB)
-	fmt.ScanIn(&AC)
-}
+func main() {
+	fmt.Println("Вычисление площади, периметра и гипотенузы по катетам прямоугольного треугольника. Введите катеты:")
 
-var AB, AC, BC float64
+	var AB, AC float64
 
-BC = math.sqrt(AB**2 + AC**2)
+	fmt.Scanln(&AB)
+	fmt.Scanln(&AC)
 
-func getPerimeter()  {
-	P = AB +AC + BC
-}
+	var BC float64 = math.Sqrt(math.Pow(AB, 2) + math.Pow(AC, 2))
+	var P float64 = AB + AC + BC
+	var S float64 = (AB * AC) / 2
+	var H float64 = math.Sqrt(math.Pow(AB, 2) - math.Pow(AC, 2))
 
-func getSquare()  {
-	S = (AB * AC) / 2
-}
-
-func getHypotenuse()  {
-	Hypotenuse = math.sqrt(math.Pow(AB, 2) - math.Pow(AC, 2))
+	fmt.Printf("При катетах %.2f и %.2f, данные вашего прямоугольного треугольника будут следующими: периметр %.2f, площадь %.2f, гипотенуза %.2f", AB, AC, P, S, H)
 }
