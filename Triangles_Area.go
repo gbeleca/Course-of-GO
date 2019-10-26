@@ -1,28 +1,51 @@
 package main
 
-import ( "fmt"
-		"math"
-		"github.com/gbeleca/course-of-GO"
+import (
+	"fmt"
+	"math"
 )
 
-func getCathets()  {
-	fmt.PrintIn("Вычисление площади, периметра и гипотенузы по катетам прямоугольного треугольника.")
-	fmt.ScanIn(&AB)
-	fmt.ScanIn(&AC)
+/**
+Точкой входа в приложение должна быть функция main
+Исключение в том случае, если точка входа у нас в другом файле этого же пакеты и мы просто вызывем там же
+функцию getCathets
+
+Другими словами, сколько бы файлов не участвовало в приложении, обязательно в одном из них дожна быть функция main
+*/
+
+func main() {
+
+	a, b := getCathets()
+	s := getSquare(a, b)
+	h := getHypotenuse(a, b)
+	fmt.Printf("Площадь треугольника: %v\n", s)
+	fmt.Printf("Гипотенуза треугольника: %v", h)
+
 }
 
-var AB, AC, BC float64
-
-BC = math.sqrt(AB**2 + AC**2)
-
-func getPerimeter()  {
-	P = AB +AC + BC
+func getCathets() (AB, AC float64) { //объявляем что функция вернет две переменные. Результат записанный в AB и AC и будут возвращены
+	//в коде опечатки которые почти невозможно не заметить использую специализированую IDE
+	//например fmt.PrintIn вместо fmt.Println. Не усложняйте себе обучение, установить JetBrains GoLand
+	fmt.Println("Вычисление площади, периметра и гипотенузы по катетам прямоугольного треугольника.")
+	fmt.Scanln(&AB)
+	fmt.Scanln(&AC)
+	return
 }
 
-func getSquare()  {
-	S = (AB * AC) / 2
+//это управляющая операция вне какой либо функции. Так делать нельзя.
+//BC = math.sqrt(AB**2 + AC**2)
+
+//опять же, вызываем функцию, в ней используем не объявленные переменые. Такой код не скомпилируется
+//func getPerimeter()  {
+//	P = AB +AC + BC
+//}
+
+// мы должны явно указать какие переменные ждем при обращении к функции getSquare(AB, BC float64)
+//так же мы указываем что функция будет возращать значения типа float64
+func getSquare(AB, AC float64) float64 {
+	return (AB * AC) / 2
 }
 
-func getHypotenuse()  {
-	Hypotenuse = math.sqrt(math.Pow(AB, 2) - math.Pow(AC, 2))
+func getHypotenuse(AB, AC float64) float64 {
+	return math.Sqrt(math.Pow(AB, 2) - math.Pow(AC, 2))
 }
