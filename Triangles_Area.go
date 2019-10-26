@@ -1,4 +1,4 @@
-package TriangleCulc
+package main
 
 import (
 	"fmt"
@@ -7,8 +7,12 @@ import (
 
 func main() {
 	fmt.Println("Вычисление площади, периметра и гипотенузы по катетам прямоугольного треугольника. Введите катеты:")
+
+	var AB, AC float64
+
 	fmt.Scanln(&AB)
 	fmt.Scanln(&AC)
+
 	var BC float64 = math.Sqrt(math.Pow(AB, 2) + math.Pow(AC, 2))
 	var P float64 = AB + AC + BC
 	var S float64 = (AB * AC) / 2
