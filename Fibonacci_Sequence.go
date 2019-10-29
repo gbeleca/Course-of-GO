@@ -1,17 +1,23 @@
 package main
+package main
 
 import (
 	"fmt"
+	"math/big"
 )
 
 func main() {
-	fmt.Println("Эта функция покажет 100 первых чисел Фибоначи:")
-	var Fibonacci_Sequence [] int
-	var Fibonacci_Sequence[0]=0
-	for i := 0; i < 100; i++ {
-		for j := 1; j < 100; j++ {
-			Fibonacci_Sequence[j] = i + j
-		}
-	}
+	a := big.NewInt(0)
+	b := big.NewInt(1)
 
+	var limit big.Int
+	limit.Exp(big.NewInt(10), big.NewInt(99), nil)
+
+	for a.Cmp(&limit) < 0 {
+		a.Add(a, b)
+		a, b = b, a
+	}
+	fmt.Println(a)
+	fmt.Println(a.ProbablyPrime(20))
+	
 }
