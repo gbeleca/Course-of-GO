@@ -13,7 +13,7 @@ func main(userNumber)  {
 		if userNumber % 2 == 0 {
 			fmt.Println("Это число четное.")
 		} else {
-			fmt.Println("Это число четное, или не является числом.")
+			fmt.Println("Это число не четное, или не является числом.")
 		}
 	}
 	
