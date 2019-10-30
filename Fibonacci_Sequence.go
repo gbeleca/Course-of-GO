@@ -1,5 +1,4 @@
 package main
-package main
 
 import (
 	"fmt"
@@ -19,5 +18,5 @@ func main() {
 	}
 	fmt.Println(a)
 	fmt.Println(a.ProbablyPrime(20))
-	
+
 }
